@@ -1,0 +1,36 @@
+import java.util.Scanner;
+class Employee {
+ int id;
+ String name;
+ double salary;
+ Employee(int id, String name, double salary) {
+ this.id = id;
+ this.name = name;
+ this.salary = salary;
+ }
+}
+public class EmployeeMax {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter number of employees: ");
+ int n = sc.nextInt();
+ Employee[] emp = new Employee[n];
+ for (int i = 0; i < n; i++) {
+ System.out.println("Enter details of employee " + (i + 1));
+ System.out.print("Id: ");
+ int id = sc.nextInt();
+ System.out.print("Name: ");
+ String name = sc.next();
+ System.out.print("Salary: ");
+ double sal = sc.nextDouble();
+ emp[i] = new Employee(id, name, sal);
+ }
+ Employee max = emp[0];
+ for (int i = 1; i < n; i++)
+ if (emp[i].salary > max.salary)
+ max = emp[i];
+ System.out.println("\nEmployee with maximum salary: " + max.name
+ + " (Id " + max.id + ", Salary " + max.salary + ")");
+ sc.close();
+ }
+}
