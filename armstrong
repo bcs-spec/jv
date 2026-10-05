@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Armstrong {
+ static boolean isArmstrong(int num) {
+ int temp = num, digits = String.valueOf(num).length(), sum = 0;
+ while (temp > 0) {
+ int d = temp % 10;
+ sum += (int) Math.pow(d, digits);
+ temp /= 10;
+ }
+ return sum == num;
+ }
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter lower limit: ");
+ int low = sc.nextInt();
+ System.out.print("Enter upper limit: ");
+ int high = sc.nextInt();
+ System.out.println("Armstrong numbers between " + low + " and " + high + ":");
+ for (int i = low; i <= high; i++)
+ if (isArmstrong(i))
+ System.out.print(i + " ");
+ System.out.println();
+ sc.close();
+ }
+}
