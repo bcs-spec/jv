@@ -1,0 +1,59 @@
+class Account {
+ String custname;
+ int accno;
+ Account() {
+ custname = "Unknown";
+ accno = 0;
+ }
+ Account(String custname, int accno) {
+ this.custname = custname;
+ this.accno = accno;
+ }
+}
+class SavingAccount extends Account {
+ double savingbal, minbal;
+ SavingAccount() {
+ super();
+ savingbal = 0;
+ minbal = 0;
+ }
+ SavingAccount(String custname, int accno, double savingbal, double minbal) {
+ super(custname, accno);
+ this.savingbal = savingbal;
+ this.minbal = minbal;
+ }
+}
+class AccountDetail extends SavingAccount {
+ double depositamt, withdrawalamt;
+ AccountDetail() {
+ super();
+ }
+ AccountDetail(String custname, int accno, double savingbal, double minbal,
+ double depositamt, double withdrawalamt) {
+ super(custname, accno, savingbal, minbal);
+ this.depositamt = depositamt;
+ this.withdrawalamt = withdrawalamt;
+ }
+ void display() {
+ System.out.println("----- Customer Details -----");
+ System.out.println("Customer Name : " + custname);
+ System.out.println("Account Number : " + accno);
+ System.out.println("Saving Balance : " + savingbal);
+ System.out.println("Minimum Balance : " + minbal);
+ System.out.println("Deposit Amount : " + depositamt);
+ System.out.println("Withdrawal Amount: " + withdrawalamt);
+ double finalBal = savingbal + depositamt - withdrawalamt;
+ System.out.println("Final Balance : " + finalBal);
+ if (finalBal < minbal)
+ System.out.println("Warning: balance is below the minimum balance!");
+ }
+}
+public class AccountDemo {
+ public static void main(String[] args) {
+ AccountDetail d1 = new AccountDetail(); // default constructor
+ d1.display();
+ System.out.println();
+ AccountDetail d2 = new AccountDetail("Amit Patil", 10234, 15000, 1000, 5000, 2000);
+ d2.display();
+ }
+}
