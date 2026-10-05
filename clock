@@ -1,0 +1,43 @@
+import java.util.Scanner;
+class Clock {
+ private int hours, minutes, seconds;
+ Clock() {
+ hours = 12;
+ minutes = 0;
+ seconds = 0;
+ }
+ Clock(int h, int m, int s) {
+ hours = h;
+ minutes = m;
+ seconds = s;
+ }
+ // Checks the validity of the time (24-hour format)
+ boolean isValid() {
+ return hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59
+ && seconds >= 0 && seconds <= 59;
+ }
+ // Sets the time to AM/PM mode
+ String toAmPm() {
+ String suffix = (hours >= 12) ? "PM" : "AM";
+ int h = hours % 12;
+ if (h == 0) h = 12;
+ return String.format("%02d:%02d:%02d %s", h, minutes, seconds, suffix);
+ }
+}
+public class ClockDemo {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter hours (0-23): ");
+ int h = sc.nextInt();
+ System.out.print("Enter minutes (0-59): ");
+ int m = sc.nextInt();
+ System.out.print("Enter seconds (0-59): ");
+ int s = sc.nextInt();
+ Clock c = new Clock(h, m, s);
+ if (c.isValid())
+ System.out.println("Time in AM/PM mode: " + c.toAmPm());
+ else
+ System.out.println("Invalid time entered!");
+ sc.close();
+ }
+}
