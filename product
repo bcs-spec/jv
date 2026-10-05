@@ -1,0 +1,38 @@
+interface Displayable {
+ void display();
+}
+class Product implements Displayable {
+ int product_id, product_quantity;
+ String product_name;
+ double product_cost;
+ static int count = 0; // counts the objects created
+ Product() {
+ product_id = 0;
+ product_name = "Not set";
+ product_cost = 0;
+ product_quantity = 0;
+ count++;
+ }
+ Product(int id, String name, double cost, int qty) {
+ product_id = id;
+ product_name = name;
+ product_cost = cost;
+ product_quantity = qty;
+ count++;
+ }
+ public void display() {
+ System.out.println("Id: " + product_id + " | Name: " + product_name
+ + " | Cost: " + product_cost + " | Quantity: " + product_quantity);
+ }
+}
+public class ProductDemo {
+ public static void main(String[] args) {
+ Product p1 = new Product();
+ Product p2 = new Product(101, "Keyboard", 750.0, 10);
+ Product p3 = new Product(102, "Mouse", 350.5, 25);
+ p1.display();
+ p2.display();
+ p3.display();
+ System.out.println("Total number of Product objects = " + Product.count);
+ }
+}
