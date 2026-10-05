@@ -1,0 +1,82 @@
+import java.util.Scanner;
+public class MatrixMenu {
+ static Scanner sc = new Scanner(System.in);
+ static int[][] read(int r, int c, String name) {
+ int[][] m = new int[r][c];
+ System.out.println("Enter elements of matrix " + name + " (" + r + "x" + c + "):");
+ for (int i = 0; i < r; i++)
+ for (int j = 0; j < c; j++)
+ m[i][j] = sc.nextInt();
+ return m;
+ }
+ static void display(int[][] m) {
+ for (int[] row : m) {
+ for (int x : row) System.out.print(x + "\t");
+ System.out.println();
+ }
+ }
+ public static void main(String[] args) {
+ int choice;
+ do {
+ System.out.println("\n===== MATRIX MENU =====");
+ System.out.println("1. Addition");
+ System.out.println("2. Multiplication");
+ System.out.println("3. Transpose");
+ System.out.println("4. Exit");
+ System.out.print("Enter your choice: ");
+ choice = sc.nextInt();
+ switch (choice) {
+ case 1: {
+ System.out.print("Enter rows and columns: ");
+ int r = sc.nextInt(), c = sc.nextInt();
+ int[][] a = read(r, c, "A");
+ int[][] b = read(r, c, "B");
+ int[][] s = new int[r][c];
+ for (int i = 0; i < r; i++)
+ for (int j = 0; j < c; j++)
+ s[i][j] = a[i][j] + b[i][j];
+ System.out.println("Sum of matrices:");
+ display(s);
+ break;
+ }
+ case 2: {
+ System.out.print("Enter rows and columns of A: ");
+ int r1 = sc.nextInt(), c1 = sc.nextInt();
+ System.out.print("Enter rows and columns of B: ");
+ int r2 = sc.nextInt(), c2 = sc.nextInt();
+ if (c1 != r2) {
+ System.out.println("Multiplication not possible (cols of A != rows of B)");
+ break;
+ }
+ int[][] a = read(r1, c1, "A");
+ int[][] b = read(r2, c2, "B");
+ int[][] p = new int[r1][c2];
+ for (int i = 0; i < r1; i++)
+ for (int j = 0; j < c2; j++)
+ for (int k = 0; k < c1; k++)
+ p[i][j] += a[i][k] * b[k][j];
+ System.out.println("Product of matrices:");
+ display(p);
+ break;
+ }
+ case 3: {
+ System.out.print("Enter rows and columns: ");
+ int r = sc.nextInt(), c = sc.nextInt();
+ int[][] a = read(r, c, "A");
+ int[][] t = new int[c][r];
+ for (int i = 0; i < r; i++)
+for (int j = 0; j < c; j++)
+ t[j][i] = a[i][j];
+ System.out.println("Transpose:");
+ display(t);
+ break;
+ }
+ case 4:
+ System.out.println("Exiting... Thank you!");
+ break;
+ default:
+ System.out.println("Invalid choice!");
+ }
+ } while (choice != 4);
+ }
+}
