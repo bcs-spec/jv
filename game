@@ -1,0 +1,39 @@
+package game;
+public class Indoor {
+ String gameName;
+ String[] players;
+ public Indoor() {
+ gameName = "Chess";
+ players = new String[]{"Anand", "Kasparov"};
+ }
+ public Indoor(String gameName, String[] players) {
+ this.gameName = gameName;
+ this.players = players;
+ }
+ public void display() {
+ System.out.println("Indoor Game : " + gameName);
+ System.out.println("Players :");
+ for (String p : players)
+ System.out.println(" - " + p);
+ }
+}
+game/Outdoor.java
+package game;
+public class Outdoor {
+ String gameName;
+ String[] players;
+ public Outdoor() {
+ gameName = "Football";
+ players = new String[]{"Messi", "Ronaldo", "Neymar"};
+ }
+ public Outdoor(String gameName, String[] players) {
+ this.gameName = gameName;
+ this.players = players;
+ }
+ public void display() {
+ System.out.println("Outdoor Game: " + gameName);
+ System.out.println("Players :");
+ for (String p : players)
+ System.out.println(" - " + p);
+ }
+}
