@@ -1,0 +1,60 @@
+import java.util.Scanner;
+class Vehicle {
+ String company;
+ double price;
+ Vehicle(String company, double price) {
+ this.company = company;
+ this.price = price;
+ }
+ void display() {
+ System.out.println("Company : " + company);
+ System.out.println("Price : " + price);
+ }
+}
+class LightMotorVehicle extends Vehicle {
+ double mileage;
+ LightMotorVehicle(String company, double price, double mileage) {
+ super(company, price);
+ this.mileage = mileage;
+ }
+ void display() {
+ System.out.println("Type : Light Motor Vehicle");
+ super.display();
+ System.out.println("Mileage : " + mileage + " km/l");
+ }
+}
+class HeavyMotorVehicle extends Vehicle {
+ double capacity_in_tons;
+ HeavyMotorVehicle(String company, double price, double capacity) {
+ super(company, price);
+ this.capacity_in_tons = capacity;
+ }
+ void display() {
+ System.out.println("Type : Heavy Motor Vehicle");
+ super.display();
+ System.out.println("Capacity: " + capacity_in_tons + " tons");
+ }
+}
+public class VehicleDemo {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter number of vehicles: ");
+ int n = sc.nextInt();
+ Vehicle[] v = new Vehicle[n];
+ for (int i = 0; i < n; i++) {
+ System.out.println("\nVehicle " + (i + 1));
+ System.out.print("Type (1 = Light Motor, 2 = Heavy Motor): ");
+ int type = sc.nextInt();
+ System.out.print("Company: ");
+ String comp = sc.next();
+ System.out.print("Price: ");
+ double price = sc.nextDouble();
+ if (type == 1) {
+ System.out.print("Mileage: ");
+ v[i] = new LightMotorVehicle(comp, price, sc.nextDouble());
+ } else {
+ System.out.print("Capacity in tons: ");
+ v[i] = new HeavyMotorVehicle(comp, price, sc.nextDouble());
+ }
+ }
+ System.out.println("\n===== Vehicle Information =====");
