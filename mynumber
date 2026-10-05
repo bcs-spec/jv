@@ -1,0 +1,28 @@
+class MyNumber {
+ private int value;
+ MyNumber() { // default constructor
+ value = 0;
+ }
+ MyNumber(int value) { // parameterized constructor
+ this.value = value;
+ }
+ boolean isNegative() { return value < 0; }
+ boolean isPositive() { return value > 0; }
+ boolean isOdd() { return value % 2 != 0; }
+ boolean isEven() { return value % 2 == 0; }
+}
+public class MyNumberDemo {
+ public static void main(String[] args) {
+ if (args.length == 0) {
+ System.out.println("Usage: java MyNumberDemo <integer>");
+ return;
+ }
+ int n = Integer.parseInt(args[0]); // command-line argument
+ MyNumber obj = new MyNumber(n);
+ System.out.println("Number : " + n);
+ System.out.println("isNegative : " + obj.isNegative());
+ System.out.println("isPositive : " + obj.isPositive());
+ System.out.println("isOdd : " + obj.isOdd());
+ System.out.println("isEven : " + obj.isEven());
+ }
+}
