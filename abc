@@ -1,0 +1,15 @@
+FileUpper.java
+import java.io.*;
+public class FileUpper {
+ public static void main(String[] args) {
+ try (BufferedReader br = new BufferedReader(new FileReader("abc.txt"))) {
+ String line;
+ System.out.println("Contents of abc.txt in uppercase:");
+ while ((line = br.readLine()) != null)
+ System.out.println(line.toUpperCase());
+ } catch (FileNotFoundException e) {
+ System.out.println("abc.txt not found in the current folder.");
+ } catch (IOException e) {
+ System.out.println("I/O error: " + e.getMessage());
+ }
+ }
