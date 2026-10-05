@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.Scanner;
+public class FileReverseCase {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter file name: ");
+ String fname = sc.nextLine();
+ try (BufferedReader br = new BufferedReader(new FileReader(fname))) {
+ StringBuilder sb = new StringBuilder();
+ String line;
+ while ((line = br.readLine()) != null)
+ sb.append(line).append("\n");
+ sb.reverse(); // reverse the whole content
+ StringBuilder out = new StringBuilder();
+ for (char ch : sb.toString().toCharArray()) {
+ if (Character.isUpperCase(ch)) out.append(Character.toLowerCase(ch));
+ else if (Character.isLowerCase(ch)) out.append(Character.toUpperCase(ch));
+ else out.append(ch);
+ }
+ System.out.println("Content in reverse order with case changed:");
+ System.out.println(out);
+ } catch (FileNotFoundException e) {
+ System.out.println("File not found: " + fname);
+ } catch (IOException e) {
+ System.out.println("Error reading file: " + e.getMessage());
+ }
+ sc.close();
+ }
+}
