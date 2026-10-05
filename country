@@ -1,0 +1,33 @@
+class Continent {
+ String continent;
+ Continent(String continent) {
+ this.continent = continent;
+ }
+}
+class Country extends Continent {
+ String country;
+ Country(String continent, String country) {
+ super(continent);
+ this.country = country;
+ }
+}
+class State extends Country {
+ String state, place;
+ State(String continent, String country, String state, String place) {
+ super(continent, country);
+ this.state = state;
+ this.place = place;
+ }
+ void display() {
+ System.out.println("Place : " + place);
+ System.out.println("State : " + state);
+ System.out.println("Country : " + country);
+ System.out.println("Continent : " + continent);
+ }
+}
+public class PlaceDemo {
+ public static void main(String[] args) {
+ State s = new State("Asia", "India", "Maharashtra", "Pune");
+ s.display();
+ }
+}
