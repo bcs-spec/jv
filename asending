@@ -1,0 +1,23 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class ArraySum {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter number of elements: ");
+ int n = sc.nextInt();
+ int[] a = new int[n];
+ int sum = 0;
+ System.out.println("Enter " + n + " elements:");
+ for (int i = 0; i < n; i++) {
+ a[i] = sc.nextInt();
+ sum += a[i];
+ }
+ System.out.println("Sum of elements = " + sum);
+ Arrays.sort(a); // ascending order
+ System.out.print("Elements in ascending order: ");
+ for (int x : a)
+ System.out.print(x + " ");
+ System.out.println();
+ sc.close();
+ }
+}
