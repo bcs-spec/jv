@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.Scanner;
+public class FileCount {
+ public static void main(String[] args) {
+ Scanner sc = new Scanner(System.in);
+ System.out.print("Enter file name: ");
+ String fname = sc.nextLine();
+ int chars = 0, words = 0, lines = 0;
+ try (BufferedReader br = new BufferedReader(new FileReader(fname))) {
+ String line;
+ while ((line = br.readLine()) != null) {
+ lines++;
+ chars += line.length();
+ String t = line.trim();
+ if (!t.isEmpty())
+ words += t.split("\\s+").length;
+ }
+ System.out.println("Number of characters: " + chars);
+ System.out.println("Number of words : " + words);
+ System.out.println("Number of lines : " + lines);
+ } catch (IOException e) {
+ System.out.println("Cannot read file: " + e.getMessage());
+ }
+ sc.close();
+ }
+}
