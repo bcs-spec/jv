@@ -1,0 +1,13 @@
+const employee = {
+ name: "Sneha Kulkarni",
+ department: "Computer Science",
+ salary: 52000
+};
+// Object destructuring
+const { name, department, salary } = employee;
+console.log("Name :", name);
+console.log("Department :", department);
+console.log("Salary :", salary);
+// Bonus: rename variables and give a default value
+const { name: empName, city = "Pune" } = employee;
+console.log(`${empName} works in ${city}`);
