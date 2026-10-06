@@ -1,0 +1,23 @@
+const fs = require("fs");
+// Create directory
+fs.mkdir("myfolder", (err) => {
+ if (err) return console.log("mkdir error:", err.message);
+ console.log("Directory 'myfolder' created.");
+ // Put a file inside so that listing shows something
+ fs.writeFileSync("myfolder/a.txt", "sample");
+ // List directory contents
+ fs.readdir("myfolder", (err, files) => {
+ if (err) return console.log("readdir error:", err.message);
+ console.log("Contents of myfolder:", files);
+ // Rename directory
+ fs.rename("myfolder", "newfolder", (err) => {
+ if (err) return console.log("rename error:", err.message);
+ console.log("Directory renamed to 'newfolder'.");
+ // Delete directory (recursive removes the files inside too)
+ fs.rm("newfolder", { recursive: true }, (err) => {
+ if (err) return console.log("delete error:", err.message);
+ console.log("Directory 'newfolder' deleted.");
+ });
+ });
+ });
+});
