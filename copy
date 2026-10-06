@@ -1,0 +1,8 @@
+const original = [10, 20, 30, 40];
+// Create a copy using the spread operator
+const copy = [...original];
+// Add a new element to the copied array
+copy.push(50);
+console.log("Original array :", original);
+console.log("Copied array :", copy);
+console.log("Same reference?", original === copy); 
