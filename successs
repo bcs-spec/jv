@@ -1,0 +1,19 @@
+
+const fs = require("fs");
+const file = "temp.txt";
+fs.writeFile(file, "This is a temporary file.", (err) => {
+ if (err) {
+ console.log("Error: could not create file ->", err.message);
+ return;
+ }
+ console.log("Success: file '" + file + "' created.");
+ fs.unlink(file, (err) => {
+ if (err) {
+ console.log("Error: could not delete file ->", err.message);
+ return;
+ }
+ console.log("Success: file '" + file + "' deleted.");
+ });
+});
+How to run
+node fs_cre
