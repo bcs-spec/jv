@@ -1,0 +1,21 @@
+const calculateTotal = (price, qty, gstPercent) => {
+ const amount = price * qty;
+ const gst = (amount * gstPercent) / 100;
+ return { amount, gst, total: amount + gst };
+};
+const product = "Wireless Mouse";
+const price = 450;
+const qty = 3;
+const gstPercent = 18;
+const { amount, gst, total } = calculateTotal(price, qty, gstPercent);
+// Bill using template literals and string interpolation
+console.log(`
+------------- BILL -------------
+Product : ${product}
+Price : Rs. ${price}
+Quantity : ${qty}
+Amount : Rs. ${amount}
+GST (${gstPercent}%) : Rs. ${gst.toFixed(2)}
+--------------------------------
+Total : Rs. ${total.toFixed(2)}
+--------------------------------`);
