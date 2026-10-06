@@ -1,0 +1,17 @@
+mathOps.mjs
+// mathOps.mjs : module that exports arithmetic functions
+export function add(a, b) { return a + b; }
+export function subtract(a, b) { return a - b; }
+export function multiply(a, b) { return a * b; }
+export function divide(a, b) {
+ if (b === 0) throw new Error("Division by zero");
+ return a / b;
+}
+main.mjs
+// main.mjs : imports and uses the functions
+import { add, subtract, multiply, divide } from "./mathOps.mjs";
+const a = 24, b = 6;
+console.log(`${a} + ${b} = ${add(a, b)}`);
+console.log(`${a} - ${b} = ${subtract(a, b)}`);
+console.log(`${a} * ${b} = ${multiply(a, b)}`);
+console.log(`${a} / ${b} = ${divide(a, b)}`);
