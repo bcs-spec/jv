@@ -1,0 +1,23 @@
+const name = "Rahul Patil";
+const rollNo = 25;
+const className = "T.Y.B.Sc. (Computer Science)";
+const marks = { java: 78, web: 85, dbms: 72 };
+const total = marks.java + marks.web + marks.dbms;
+const percentage = (total / 3).toFixed(2);
+const result = percentage >= 40 ? "PASS" : "FAIL";
+// Formatted report using template literals (multi-line string)
+const report = `
+=========== STUDENT REPORT ===========
+Name : ${name}
+Roll No : ${rollNo}
+Class : ${className}
+--------------------------------------
+Java : ${marks.java}
+Web Tech : ${marks.web}
+DBMS : ${marks.dbms}
+--------------------------------------
+Total : ${total} / 300
+Percentage : ${percentage}%
+Result : ${result}
+======================================`;
+console.log(report);
