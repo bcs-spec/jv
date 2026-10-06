@@ -1,0 +1,6 @@
+let a = 10;
+let b = 25;
+console.log(`Before swapping: a = ${a}, b = ${b}`);
+// Array destructuring: swap without a third variable
+[a, b] = [b, a];
+console.log(`After swapping : a = ${a}, b = ${b}`);
