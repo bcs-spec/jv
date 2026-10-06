@@ -1,0 +1,9 @@
+const sum = (...numbers) => {
+ let total = 0;
+ for (const n of numbers) total += n;
+ return total;
+};
+console.log("Sum of 1, 2, 3 =", sum(1, 2, 3));
+console.log("Sum of 5, 10, 15, 20 =", sum(5, 10, 15, 20));
+console.log("Sum of 7 =", sum(7));
+console.log("Sum with no arguments =", sum());
