@@ -1,0 +1,14 @@
+const fs = require("fs");
+const file = "student.txt";
+// Create + write (overwrites if the file already exists)
+fs.writeFileSync(file, "Name: Rahul\nClass: TYBSc CS\n");
+console.log("1. File created and data written.");
+// Read
+console.log("2. File content after writing:");
+console.log(fs.readFileSync(file, "utf8"));
+// Append
+fs.appendFileSync(file, "Subject: Core Java and Web Technology\n");
+console.log("3. Data appended.");
+// Read again
+console.log("4. File content after appending:");
+console.log(fs.readFileSync(file, "utf8"));
