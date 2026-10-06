@@ -1,0 +1,11 @@
+// Arrow function that returns both total and average of three subjects
+const calculate = (m1, m2, m3) => {
+ const total = m1 + m2 + m3;
+ const average = total / 3;
+ return { total, average };
+};
+const s1 = 78, s2 = 85, s3 = 91;
+const { total, average } = calculate(s1, s2, s3);
+console.log(`Marks : ${s1}, ${s2}, ${s3}`);
+console.log(`Total : ${total}`);
+console.log(`Average : ${average.toFixed(2)}`);
