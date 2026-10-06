@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Change Heading Text</title>
+<style>
+ body { font-family: Arial, sans-serif; text-align: center; margin-top: 80px; }
+ button { padding: 10px 24px; font-size: 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+ <h1 id="heading">Hello! Welcome</h1>
+ <button onclick="changeText()">Click Me</button>
+ <script>
+ function changeText() {
+ document.getElementById("heading").innerText = "Text Changed Successfully!";
+ }
+ </script>
+</body>
+</html>
