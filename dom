@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Replace Image</title>
+<style>
+ body { font-family: Arial, sans-serif; text-align: center; margin-top: 40px; }
+ img { width: 400px; max-width: 90%; border: 3px solid #333; border-radius: 8px;
+ display: block; margin: 0 auto 20px; }
+ button { padding: 10px 24px; font-size: 16px; cursor: pointer; }
+</style>
+</head>
+<body>
+ <img id="pic" src="https://picsum.photos/id/237/400/300" alt="Image">
+ <button id="btn">Change Image</button>
+ <script>
+ const images = [
+ "https://picsum.photos/id/237/400/300",
+ "https://picsum.photos/id/1025/400/300"
+ ];
+ let current = 0;
+ document.getElementById("btn").addEventListener("click", function () {
+ current = (current + 1) % images.length; // toggle between images
+ document.getElementById("pic").src = images[current];
+ });
+ </script>
+</body>
+</html>
