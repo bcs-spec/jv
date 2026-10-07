@@ -1,0 +1,47 @@
+class Student
+{
+    String student_name;
+    int student_rollno;
+    int total_lectures;
+    int attended_lectures;
+
+    Student(String name, int rollno, int total, int attended)
+    {
+        student_name = name;
+        student_rollno = rollno;
+        total_lectures = total;
+        attended_lectures = attended;
+    }
+
+    void checkAttendance() throws Exception
+    {
+        double percentage = (attended_lectures * 100.0) / total_lectures;
+
+        if(percentage < 75)
+            throw new Exception("Student is Not Eligible for Exam");
+
+        System.out.println("Student Name: " + student_name);
+        System.out.println("Roll No: " + student_rollno);
+        System.out.println("Total Lectures: " + total_lectures);
+        System.out.println("Attended Lectures: " + attended_lectures);
+        System.out.println("Attendance: " + percentage + "%");
+        System.out.println("Student is Eligible for Exam");
+    }
+}
+
+public class StudentDemo
+{
+    public static void main(String args[])
+    {
+        Student s = new Student("Mangesh", 101, 100, 80);
+
+        try
+        {
+            s.checkAttendance();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+}
